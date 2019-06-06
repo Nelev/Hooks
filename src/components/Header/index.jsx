@@ -4,19 +4,21 @@ import { Button, Modal } from "antd";
 
 import "./style.less";
 
-const useToggleModal = (init, ref) => {
-    const [show, setToggleModal] = useState(init);
-    const toggleModal = () => setToggleModal(!show);
-    return { show, toggleModal };
-};
-
 const Header = () => {
     const [showProfile, setShowProfile] = useState(false);
 
     const Profile = () => {
-        console.log(showProfile);
         return showProfile === true ? (
-            <Modal title="Basic Modal" visible={showProfile} />
+            <Modal
+                title="Basic Modal"
+                visible={showProfile}
+                onCancel={() => {
+                    setShowProfile(false);
+                }}
+                onOk={() => {
+                    setShowProfile(false);
+                }}
+            />
         ) : null;
     };
 
@@ -24,7 +26,7 @@ const Header = () => {
         <div className="c-Header">
             <Button
                 onClick={() => {
-                    setShowProfile();
+                    setShowProfile(true);
                 }}
             />
             <Profile />
