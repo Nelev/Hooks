@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
-import { Button, Icon, Modal } from "antd";
+import { Icon, Modal, Tooltip } from "antd";
 
 import "./style.less";
 
@@ -46,15 +46,15 @@ const Header = () => {
             <span className="c-HeaderTitle">
                 <FormattedMessage id="app.title" />
             </span>
-            <span className="c-ProfileButton">
-                <Button
-                    type="user"
-                    onClick={() => {
-                        setShowProfile(true);
-                    }}
-                >
+            <span
+                className="c-Header-Profile-Icon"
+                onClick={() => {
+                    setShowProfile(true);
+                }}
+            >
+                <Tooltip title="profile">
                     <Icon type="user" />
-                </Button>
+                </Tooltip>
             </span>
             <Profile />
             <Menu />
