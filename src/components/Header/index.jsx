@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
-import { Icon, Modal, Tooltip } from "antd";
+import { Icon, Tooltip } from "antd";
+
+import Profile from "../Profile/index.jsx";
+import { useModal } from "../../hooks/index.js";
 
 import "./style.less";
 
 const Header = () => {
+    const { isShowing, toggleModal } = useModal();
     const [showMenu, setShowMenu] = useState(false);
-    const [showProfile, setShowProfile] = useState(false);
-
-    const Menu = () => {
-        return showMenu ? <div style={{ color: "black" }}>Menu</div> : null;
-    };
 
     const MenuToogle = () => {
         return (
@@ -25,39 +24,18 @@ const Header = () => {
         );
     };
 
-    const Profile = () => {
-        return showProfile ? (
-            <Modal
-                title={<FormattedMessage id="components.header.profileTitle" />}
-                visible={showProfile}
-                onCancel={() => {
-                    setShowProfile(false);
-                }}
-                onOk={() => {
-                    setShowProfile(false);
-                }}
-            />
-        ) : null;
-    };
-
     return (
         <div className="c-Header">
             <MenuToogle />
             <span className="c-HeaderTitle">
                 <FormattedMessage id="app.title" />
             </span>
-            <span
-                className="c-Header-Profile-Icon"
-                onClick={() => {
-                    setShowProfile(true);
-                }}
-            >
+            <span className="c-Header-Profile-Icon" onClick={toggleModal}>
                 <Tooltip title="profile">
                     <Icon type="user" />
                 </Tooltip>
             </span>
-            <Profile />
-            <Menu />
+            <Profile isShowing={isShowing} toggleModal={toggleModal} />
         </div>
     );
 };
