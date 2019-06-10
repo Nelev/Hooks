@@ -2,7 +2,7 @@ import { flattenMessages } from "./utils";
 
 const messages = {
     app: {
-        title: "w-Console"
+        title: "Hooks"
     },
     views: {},
     components: {

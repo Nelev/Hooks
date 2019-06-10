@@ -5,13 +5,13 @@ import { fetchTemperature } from "../../actions/temperature";
 const DashBoard = () => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchTemperature());
-    }, []);
-
     const currentTemperature = useSelector(
         state => state.views.dashboard.currentTemperature
     );
+
+    useEffect(() => {
+        dispatch(fetchTemperature());
+    }, []);
 
     return <div>{currentTemperature}</div>;
 };

@@ -6,6 +6,7 @@ import { IntlProvider } from "react-intl";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import Login from "./views/Login/index.jsx";
 import messagesEn from "./messages/en";
 import Root from "./views/Root/index.jsx";
 import store from "./store";
@@ -20,11 +21,13 @@ const messages = { en: messagesEn };
 const App = (
     <IntlProvider locale={language} messages={messages[language]}>
         <Provider store={store}>
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" component={Root} />
-                </Switch>
-            </BrowserRouter>
+            <Login>
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/" component={Root} />
+                    </Switch>
+                </BrowserRouter>
+            </Login>
         </Provider>
     </IntlProvider>
 );
