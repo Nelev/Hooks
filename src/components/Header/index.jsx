@@ -21,12 +21,15 @@ const Header = props => {
     const [menuWidth, setMenuWidth] = useState(55);
     const { setCurrentRoot } = props;
 
-    const MenuToogle = () => {
+    const MenuToogle = props => {
+        const { setContentMargin, contentMargin } = props;
         return (
             <span
                 className="c-Header-MenuToggle"
                 onClick={() => {
                     const newWidth = menuWidth === 55 ? 170 : 55;
+                    const newMargin = contentMargin === 40 ? 180 : 40;
+                    setContentMargin(newMargin);
                     setMenuWidth(newWidth);
                 }}
             >
@@ -37,7 +40,7 @@ const Header = props => {
 
     return (
         <div className="c-Header">
-            <MenuToogle />
+            <MenuToogle {...props} />
             <span className="c-HeaderTitle">
                 <FormattedMessage id="app.title" />
             </span>
