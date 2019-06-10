@@ -1,17 +1,12 @@
 @import "../../index.less";
 
 .c-SideMenu {
-    text-align: center;
-    vertical-align: middle;
+    align-items: center;
     position: sticky;
     margin-top: 100px;
     font-size: 120%;
-    -webkit-transition: width 1s;
-    transition: width 1s;
-}
-
-.c-SideMenu:hover {
-    width: 150px;
+    -webkit-transition: width 0.5s;
+    transition: width 0.5s;
 }
 
 .c-SideMenu-Entry {
@@ -39,5 +34,7 @@
 }
 
 .c-SideMenu-Label {
+    vertical-align: middle;
+    height: 100%;
     float: left;
 }
