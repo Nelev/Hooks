@@ -12,3 +12,16 @@ export const useModal = () => {
         toggleModal
     };
 };
+
+export const useCurrent = resource => {
+    const [current, set] = useState(resource);
+
+    function setCurrent(resource) {
+        set(resource);
+    }
+
+    return {
+        current,
+        setCurrent
+    };
+};

@@ -4,18 +4,19 @@ import { Icon, Tooltip } from "antd";
 
 import Profile from "../Profile/index.jsx";
 import SideMenu from "../SideMenu/index.jsx";
-import { useModal } from "../../hooks/index.js";
+import { useCurrent, useModal } from "../../hooks/index.js";
 
 import "./style.less";
 
 const resources = [
-    { name: "Dashboard", icon: "area-chart" },
-    { name: "Heat", icon: "fire" },
-    { name: "Humid", icon: "clock-circle" },
+    { name: "DASHBOARD", icon: "area-chart" },
+    { name: "HEAT", icon: "fire" },
+    { name: "HUMID", icon: "clock-circle" },
     { name: "FAN", icon: "dashboard" }
 ];
 
 const Header = () => {
+    const { current, setCurrent } = useCurrent("DASHBOARD");
     const { isShowing, toggleModal } = useModal();
     const [menuWidth, setMenuWidth] = useState(55);
 
@@ -24,7 +25,7 @@ const Header = () => {
             <span
                 className="c-Header-MenuToggle"
                 onClick={() => {
-                    const newWidth = menuWidth === 55 ? 150 : 55;
+                    const newWidth = menuWidth === 55 ? 170 : 55;
                     setMenuWidth(newWidth);
                 }}
             >
@@ -45,7 +46,13 @@ const Header = () => {
                 </Tooltip>
             </span>
             <Profile isShowing={isShowing} toggleModal={toggleModal} />
-            <SideMenu menuWidth={menuWidth} resources={resources} />;
+            <SideMenu
+                menuWidth={menuWidth}
+                resources={resources}
+                current={current}
+                setCurrent={setCurrent}
+            />
+            ;
         </div>
     );
 };

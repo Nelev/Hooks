@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Icon } from "antd";
 
 import "./style.less";
 
 const SideMenu = props => {
-    const [currentResource, setCurrentResource] = useState("Dashboard");
-    const { resources, menuWidth } = props;
+    const { current, menuWidth, resources, setCurrent } = props;
     return (
         <div className={"c-SideMenu"} style={{ width: menuWidth }}>
             {resources &&
@@ -13,13 +12,13 @@ const SideMenu = props => {
                     return (
                         <div
                             className={
-                                currentResource === resource.name
+                                current === resource.name
                                     ? "c-SideMenu-Entry-Selected"
                                     : "c-SideMenu-Entry"
                             }
                             key={index}
                             onClick={() => {
-                                setCurrentResource(resource.name);
+                                setCurrent(resource.name);
                             }}
                         >
                             <span className="c-SideMenu-Icon">
