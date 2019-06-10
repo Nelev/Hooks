@@ -17,17 +17,18 @@ const resources = [
 
 const Header = () => {
     const { isShowing, toggleModal } = useModal();
-    const [showMenu, setShowMenu] = useState(false);
+    const [menuWidth, setMenuWidth] = useState(55);
 
     const MenuToogle = () => {
         return (
             <span
                 className="c-Header-MenuToggle"
                 onClick={() => {
-                    setShowMenu(!showMenu);
+                    const newWidth = menuWidth === 55 ? 150 : 55;
+                    setMenuWidth(newWidth);
                 }}
             >
-                <Icon type={showMenu ? "close" : "profile"} />
+                <Icon type={menuWidth === 55 ? "close" : "profile"} />
             </span>
         );
     };
@@ -44,7 +45,7 @@ const Header = () => {
                 </Tooltip>
             </span>
             <Profile isShowing={isShowing} toggleModal={toggleModal} />
-            <SideMenu show={showMenu} resources={resources} />;
+            <SideMenu menuWidth={menuWidth} resources={resources} />;
         </div>
     );
 };

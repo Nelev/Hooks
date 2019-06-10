@@ -1,14 +1,17 @@
 @import "../../index.less";
 
 .c-SideMenu {
+    text-align: center;
+    vertical-align: middle;
     position: sticky;
     margin-top: 100px;
-    width: 70px;
-    font-size: 150%;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 0.5s forwards;
-    animation-delay: 2s;
+    font-size: 120%;
+    -webkit-transition: width 1s;
+    transition: width 1s;
+}
+
+.c-SideMenu:hover {
+    width: 150px;
 }
 
 .c-SideMenu-Entry {
@@ -16,38 +19,25 @@
     height: 40px;
     background-color: @main-bg-color;
     color: @main-text-color;
+    white-space: nowrap; /*keep text on one line */
+    overflow: hidden;
 }
 
 .c-SideMenu-Entry-Selected {
     height: 40px;
     background-color: @main-text-color;
     color: @main-bg-color;
-}
-
-.c-SideMenu-Expanded {
-    margin-top: 100px;
-    position: sticky;
-    vertical-align: center;
-    font-size: 120%;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 0.5s forwards;
-    animation-delay: 2s;
+    white-space: nowrap; /*keep text on one line */
+    overflow: hidden;
 }
 
 .c-SideMenu-Icon {
+    float: left;
+    margin-left: 15px;
     margin-right: 15px;
-    font-size: 120%;
+    font-size: 160%;
 }
 
-@-webkit-keyframes slide {
-    100% {
-        left: 0;
-    }
-}
-
-@keyframes slide {
-    100% {
-        left: 0;
-    }
+.c-SideMenu-Label {
+    float: left;
 }

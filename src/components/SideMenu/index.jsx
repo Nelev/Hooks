@@ -5,9 +5,9 @@ import "./style.less";
 
 const SideMenu = props => {
     const [currentResource, setCurrentResource] = useState("Dashboard");
-    const { resources, show } = props;
+    const { resources, menuWidth } = props;
     return (
-        <div className={show ? "c-SideMenu-Expanded" : "c-SideMenu"}>
+        <div className={"c-SideMenu"} style={{ width: menuWidth }}>
             {resources &&
                 resources.map((resource, index) => {
                     return (
@@ -25,7 +25,9 @@ const SideMenu = props => {
                             <span className="c-SideMenu-Icon">
                                 <Icon type={resource.icon} />
                             </span>
-                            {show ? resource.name : ""}
+                            <span className="c-SideMenu-Label">
+                                {resource.name}
+                            </span>
                         </div>
                     );
                 })}
