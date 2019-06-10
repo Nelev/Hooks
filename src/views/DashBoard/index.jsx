@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTemperature } from "../../actions/temperature";
 
-const DashBoard = () => {
+const DashBoard = props => {
+    const { show } = props;
     const dispatch = useDispatch();
 
     const currentTemperature = useSelector(
@@ -11,9 +12,9 @@ const DashBoard = () => {
 
     useEffect(() => {
         dispatch(fetchTemperature());
-    }, []);
+    }, [show]);
 
-    return <div>{currentTemperature}</div>;
+    return show ? <div>{currentTemperature}</div> : null;
 };
 
 export default DashBoard;

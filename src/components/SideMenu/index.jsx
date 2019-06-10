@@ -4,7 +4,7 @@ import { Icon } from "antd";
 import "./style.less";
 
 const SideMenu = props => {
-    const { current, menuWidth, resources, setCurrent } = props;
+    const { current, menuWidth, resources, setCurrent, setCurrentRoot } = props;
     return (
         <div className={"c-SideMenu"} style={{ width: menuWidth }}>
             {resources &&
@@ -18,6 +18,7 @@ const SideMenu = props => {
                             }
                             key={index}
                             onClick={() => {
+                                setCurrentRoot(resource.name);
                                 setCurrent(resource.name);
                             }}
                         >

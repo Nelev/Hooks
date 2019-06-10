@@ -15,10 +15,11 @@ const resources = [
     { name: "FAN", icon: "dashboard" }
 ];
 
-const Header = () => {
+const Header = props => {
     const { current, setCurrent } = useCurrent("DASHBOARD");
     const { isShowing, toggleModal } = useModal();
     const [menuWidth, setMenuWidth] = useState(55);
+    const { setCurrentRoot } = props;
 
     const MenuToogle = () => {
         return (
@@ -51,6 +52,7 @@ const Header = () => {
                 resources={resources}
                 current={current}
                 setCurrent={setCurrent}
+                setCurrentRoot={setCurrentRoot}
             />
             ;
         </div>
