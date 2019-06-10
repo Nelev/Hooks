@@ -54,7 +54,6 @@ const Header = props => {
                 setCurrent={setCurrent}
                 setCurrentRoot={setCurrentRoot}
             />
-            ;
         </div>
     );
 };

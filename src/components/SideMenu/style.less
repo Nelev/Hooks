@@ -1,29 +1,31 @@
 @import "../../index.less";
 
 .c-SideMenu {
-    align-items: center;
     position: sticky;
-    margin-top: 100px;
+    margin-top: 15px;
     font-size: 120%;
     -webkit-transition: width 0.5s;
     transition: width 0.5s;
 }
 
 .c-SideMenu-Entry {
-    vertical-align: middle;
     height: 40px;
-    background-color: @main-bg-color;
+    background-color: @bars-color;
     color: @main-text-color;
     white-space: nowrap; /*keep text on one line */
     overflow: hidden;
+    text-align: center;
+    user-select: none;
 }
 
 .c-SideMenu-Entry-Selected {
     height: 40px;
     background-color: @main-text-color;
-    color: @main-bg-color;
+    color: @bars-color;
     white-space: nowrap; /*keep text on one line */
     overflow: hidden;
+    text-align: center;
+    user-select: none;
 }
 
 .c-SideMenu-Icon {
@@ -36,5 +38,6 @@
 .c-SideMenu-Label {
     vertical-align: middle;
     height: 100%;
-    float: left;
+    display: inline-block;
+    vertical-align: sub;
 }
