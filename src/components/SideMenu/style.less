@@ -3,22 +3,51 @@
 .c-SideMenu {
     position: sticky;
     margin-top: 100px;
-    width: 80px;
-    height: 40px;
+    width: 70px;
+    font-size: 150%;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
 }
 
 .c-SideMenu-Entry {
+    vertical-align: middle;
     height: 40px;
     background-color: @main-bg-color;
     color: @main-text-color;
-    border: "2px solid green";
+}
+
+.c-SideMenu-Entry-Selected {
+    height: 40px;
+    background-color: @main-text-color;
+    color: @main-bg-color;
 }
 
 .c-SideMenu-Expanded {
     margin-top: 100px;
     position: sticky;
-    width: 150px;
-    height: 40px;
     vertical-align: center;
-    color: @main-text-color;
+    font-size: 120%;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+}
+
+.c-SideMenu-Icon {
+    margin-right: 15px;
+    font-size: 120%;
+}
+
+@-webkit-keyframes slide {
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes slide {
+    100% {
+        left: 0;
+    }
 }

@@ -3,10 +3,12 @@ import "@babel/polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider } from "react-intl";
+import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import messagesEn from "./messages/en";
 import Root from "./views/Root/index.jsx";
+import store from "./store";
 
 import "./index.less";
 
@@ -17,11 +19,13 @@ const messages = { en: messagesEn };
 
 const App = (
     <IntlProvider locale={language} messages={messages[language]}>
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/" component={Root} />
-            </Switch>
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/" component={Root} />
+                </Switch>
+            </BrowserRouter>
+        </Provider>
     </IntlProvider>
 );
 

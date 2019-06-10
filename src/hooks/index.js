@@ -12,13 +12,3 @@ export const useModal = () => {
         toggleModal
     };
 };
-
-export const useMenu = () => {
-    const [isShowing, setIsShowing] = useState(false);
-
-    function toggleMenu() {
-        setIsShowing(!isShowing);
-    }
-
-    return { isShowing, toggleMenu };
-};

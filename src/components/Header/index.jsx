@@ -3,9 +3,17 @@ import { FormattedMessage } from "react-intl";
 import { Icon, Tooltip } from "antd";
 
 import Profile from "../Profile/index.jsx";
+import SideMenu from "../SideMenu/index.jsx";
 import { useModal } from "../../hooks/index.js";
 
 import "./style.less";
+
+const resources = [
+    { name: "Dashboard", icon: "area-chart" },
+    { name: "Heat", icon: "fire" },
+    { name: "Humid", icon: "clock-circle" },
+    { name: "FAN", icon: "dashboard" }
+];
 
 const Header = () => {
     const { isShowing, toggleModal } = useModal();
@@ -36,6 +44,7 @@ const Header = () => {
                 </Tooltip>
             </span>
             <Profile isShowing={isShowing} toggleModal={toggleModal} />
+            <SideMenu show={showMenu} resources={resources} />;
         </div>
     );
 };
