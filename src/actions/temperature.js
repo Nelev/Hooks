@@ -1,3 +1,7 @@
+import axios from "axios";
+
+var Config = require("Config");
+
 export const FETCH_TEMPERATURE_START = "FETCH_TEMPERATURE_START";
 export const FETCH_TEMPERATURE_SUCCESS = "FETCH_TEMPERATURE_SUCCESS";
 export const FETCH_TEMPERATURE_ERROR = "FETCH_TEMPERATURE_ERROR";
@@ -7,13 +11,12 @@ export const SET_TEMPERATURE_SUCCESS = "SET_TEMPERATURE_SUCCESS";
 export const SET_TEMPERATURE_ERROR = "SET_TEMPERATURE_ERROR";
 
 export const fetchTemperature = () => async dispatch => {
-    console.log("action");
     try {
         dispatch({ type: FETCH_TEMPERATURE_START });
-        //const { data } = await axios.get(`API_URL/temp`);
+        const { data } = await axios.get(Config.serverUrl + `/temperature`);
         dispatch({
             type: FETCH_TEMPERATURE_SUCCESS,
-            payload: Math.random(7, 12)
+            payload: data.temperature
         });
     } catch (err) {
         dispatch({

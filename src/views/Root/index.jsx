@@ -11,7 +11,7 @@ const Root = () => {
     const [contentMargin, setContentMargin] = useState(40);
     return (
         <div className="v-Container">
-            <React.Fragment>
+            <>
                 <Header
                     setCurrentRoot={setCurrent}
                     setContentMargin={setContentMargin}
@@ -23,7 +23,7 @@ const Root = () => {
                 >
                     <DashBoard show={current === "DASHBOARD" ? true : false} />
                 </div>
-            </React.Fragment>
+            </>
         </div>
     );
 };
